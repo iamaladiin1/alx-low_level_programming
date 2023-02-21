@@ -1,19 +1,18 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
-#include <time.h>
+#include <stdio.h>
 
 /**
- * main - Entry point
+ * print_last_digit - print and return last digit of@n
  *
- * Return: Always 0 (Success)
+ * @n: number
+ *
+ * Return: last digit of @n
  */
-int main(void)
+int print_last_digit(int n)
 {
-	char low;
+	int i = abs(n % 10);
 
-	for (low = 'z'; low >= 'a'; low--)
-		putchar(low);
-	putchar('\n');
-
-	return (0);
+	_putchar(48 + i);
+	return (i);
 }
