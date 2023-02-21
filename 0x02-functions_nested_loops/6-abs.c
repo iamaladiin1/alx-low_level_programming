@@ -1,20 +1,14 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
-#include <time.h>
 
 /**
- * main - Entry point
+ * _abs - compute absolute value of integer
  *
- * Return: Always 0 (Successs)
+ * @n: an integer
+ *
+ * Return: absolute value of @n
  */
-
-int main(void)
+int _abs(int n)
 {
-	int d;
-
-	for (d = '0'; d <= '9'; d++)
-		putchar(d);
-	putchar('\n');
-
-	return (0);
+	return (abs(n));
 }
