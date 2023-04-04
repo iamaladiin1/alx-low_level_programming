@@ -1,50 +1,31 @@
 #include "lists.h"
 
 /**
- * _strlen - find string length
- * Return: length
- */
-int _strlen(const char *str)
-{
-	int len;
-
-	for (len = 0; str[len] != '\0'; len++)
-		;
-	return (len);
-}
-
-/**
- * add_node_end - add node to end of linked list
- * @head: linked list
- * @str: data for new node
+ * add_nodeint_end - it adds a new node at the end of a listint_t list
  * Return: address of new element, or NULL if failed
  */
-list_t *add_node_end(list_t **head, const char *str)
+
+listint_t *add_nodeint_end(listint_t **head, const int n)
 {
-	list_t *new_node, *tmp; /* to create new node */
 
-	if (str == NULL) /* validate input */
-		return (NULL);
-	if (strdup(str) == NULL) /* to check if malloc errored */
-		return (NULL);
+	listint_t *new_node, *tmp;
 
-	new_node = malloc(sizeof(list_t)); /* malloc for new node */
+	new_node = malloc(sizeof(listint_t)); /* make new node and set values */
 	if (new_node == NULL)
 		return (NULL);
 
-	new_node->str = strdup(str); /*to set node values */
-	new_node->len = _strlen(str);
+	new_node->n = n;
 	new_node->next = NULL;
 
-	if (*head == NULL) /* if no list nodes, set new_node to beginning */
+	if (*head == NULL) /* account for empty list by pointing head to node */
 		*head = new_node;
 	else
 	{
-		tmp = *head;
+		tmp = *head; /* set tmp ptr to iterate w/o moving head ptr */
 
-		while (tmp->next != NULL)
+		while (tmp->next != NULL) /* iterate till last node */
 			tmp = tmp->next;
-		tmp->next = new_node;
+		tmp->next = new_node; /* link last node to new node */
 	}
 
 	return (new_node);
