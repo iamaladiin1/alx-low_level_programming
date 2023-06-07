@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * recursion number 1 
+ * recursion number1 
  * @s: string to print
  */
 
